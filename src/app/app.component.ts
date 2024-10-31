@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CesarService } from './services/cesar.service';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,18 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'criptografia';
+  constructor(
+    private cesarService: CesarService
+  ){}
+
+  ngOnInit(): void {
+    // this.cesarService.fetchCsrfToken().subscribe({
+    //   next: (token) => {
+    //     this.cesarService.setCsrfToken(token);
+    //     console.info('CSRFTOKEN', token);
+    //   },
+    //   error: (error) => console.error('Error al obtener el token:', error),
+    // });
+    
+  }
 }

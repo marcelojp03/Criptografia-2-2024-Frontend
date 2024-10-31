@@ -1,0 +1,38 @@
+<div class="card flex align-items-center justify-content-center home-container mt-3">
+    <p-card class="responsive-card">
+      <div class="flex flex-column align-items-center text-center p-3">
+        <h1>Proyecto de Criptografía</h1>
+        <h2>Grupo G</h2>
+        <img 
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_pFUi4o1TEqg8O0WZNJn4xSXTdzuNMA_4OQ&s" 
+          alt="Image" 
+          class="p-mb-3 img-responsive"
+        />
+      </div>
+  
+      <div class="card mt-2 p-2">
+        <p-table [value]="students" [tableStyle]="{ 'min-width': '100%' }" styleClass="p-datatable-sm p-datatable-gridlines">
+          <ng-template pTemplate="caption">
+            <div class="text-center font-bold">
+              Integrantes
+            </div>
+          </ng-template>
+  
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Nombre</th>
+              <th>Registro</th>
+            </tr>
+          </ng-template>
+  
+          <ng-template pTemplate="body" let-student>
+            <tr>
+              <td>{{ student.nombre }}</td>
+              <td>{{ student.registro }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>     
+    </p-card>
+  </div>
+  

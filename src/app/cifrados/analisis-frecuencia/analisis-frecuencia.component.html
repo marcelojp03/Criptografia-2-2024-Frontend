@@ -1,0 +1,64 @@
+
+<div class="card flex align-items-center justify-content-center mt-3 mb-3">
+    <p-card class="responsive-card shadow-4">
+      <h1 class="text-center">Análisis de frecuencia</h1>
+  
+      <div class="card flex justify-content-center mt-5 mb-3">
+        <div class="flex flex-wrap gap-3">
+        <p-floatLabel>
+          <textarea
+            id="inputText"
+            pInputTextarea
+            [(ngModel)]="text"
+            placeholder="Ingrese el texto"
+            class="p-inputtext-lg"
+            [autoResize]="true"
+          ></textarea>
+          <label for="inputText">Texto</label>
+        </p-floatLabel>
+        </div>
+      </div>
+  
+   
+      <div class="mt-5 mb-5">
+        <p-button 
+          label="Procesar" 
+          (onClick)="submitForm()" 
+          [text]="true" 
+          [raised]="true" 
+          [rounded]="true" 
+          class="ml-2 mt-2"
+          [disabled]="!isFormValid()"
+        />
+        <p-button 
+          label="Limpiar" 
+          (onClick)="clearForm()" 
+          [text]="true" 
+          [raised]="true" 
+          [rounded]="true" 
+          class="ml-2 mt-2"
+        />
+      </div>
+  
+      <div class="card flex justify-content-center mt-5 mb-3">
+        <div class="flex flex-column gap-3">
+          <label for="outputTable">Resultados</label>
+          <p-table [value]="results" [tableStyle]="{ 'min-width': '100%' }" styleClass="p-datatable-sm p-datatable-gridlines">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Letra</th>
+                <th>Cantidad</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-result>
+              <tr>
+                <td>{{ result.key }}</td>
+                <td>{{ result.value }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </p-card>
+  </div>
+  

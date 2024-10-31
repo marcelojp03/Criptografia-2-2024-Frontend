@@ -1,0 +1,107 @@
+<div class="card flex align-items-center justify-content-center mt-3">
+    <p-card class="responsive-card shadow-4">
+      <h1 class="text-center">Transposición de Columnas</h1>
+  
+      <div class="flex justify-content-center mt-3 mb-5">
+        <div class="flex flex-wrap gap-3">
+          <div class="flex align-items-center">
+            <p-radioButton
+              name="operation"
+              value="encrypt"
+              [(ngModel)]="operationType"
+              inputId="encryptOption"
+            >
+            </p-radioButton>
+            <label for="encryptOption" class="ml-2">Cifrar</label>
+          </div>
+          <div class="flex align-items-center">
+            <p-radioButton
+              name="operation"
+              value="decrypt"
+              [(ngModel)]="operationType"
+              inputId="decryptOption"
+            ></p-radioButton>
+            <label for="decryptOption" class="ml-2">Descifrar</label>
+          </div>
+        </div>
+      </div>
+  
+      <div class="card flex justify-content-center mt-3 mb-3">
+        <div class="flex flex-wrap gap-3">
+        <p-floatLabel>
+          <textarea
+            id="inputText"
+            pInputTextarea
+            [(ngModel)]="text"
+            placeholder="Ingrese el texto"
+            class="p-inputtext-lg"
+            [autoResize]="true"
+          ></textarea>
+          <label for="inputText">Texto a {{ operationType === 'encrypt' ? 'Cifrar' : 'Descifrar' }}</label>
+        </p-floatLabel>
+        </div>
+      </div>
+  
+  
+      <div class="flex justify-content-center mt-5 mb-3">
+        <p-floatLabel>
+          <input
+            type="number"
+            min="1"
+            id="shift"
+            [(ngModel)]="key"
+            pInputText
+            placeholder="Ingrese la clave"
+          />
+          <label for="shift">Clave</label>
+        </p-floatLabel>
+      </div>
+  
+  
+      <!-- <div class="flex justify-content-center mb-3 mt-3">
+        <p-dropdown
+          [(ngModel)]="language"
+          [options]="languages"
+          optionLabel="name"
+          placeholder="Seleccione el idioma"
+        ></p-dropdown>
+      </div> -->
+  
+   
+      <div class="mt-5 mb-5">
+        <p-button 
+          label="Procesar" 
+          (onClick)="submitForm()" 
+          [text]="true" 
+          [raised]="true" 
+          [rounded]="true" 
+          class="ml-2 mt-2"
+          [disabled]="!isFormValid()"
+        />
+        <p-button 
+          label="Limpiar" 
+          (onClick)="clearForm()" 
+          [text]="true" 
+          [raised]="true" 
+          [rounded]="true" 
+          class="ml-2 mt-2"
+        />
+      </div>
+  
+  
+      <div class="card flex justify-content-center mt-5 mb-3">
+        <div class="flex flex-column gap-3">
+          <label for="outputText">Resultado</label>
+            <textarea
+              id="outputText"
+              pInputTextarea
+              readonly
+              [value]="result"
+              class="p-inputtext-lg"
+              [autoResize]="true"
+            ></textarea>
+        </div>
+      </div>
+    </p-card>
+  </div>
+  
